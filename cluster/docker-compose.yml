@@ -1,0 +1,52 @@
+version: '3.3'
+services:
+  liferay-dxp-1:
+    build:
+      context: D:/Developer/Workspaces/LiferayProjects/lrf-docker/build/docker
+      dockerfile: Dockerfile
+    ports:
+      - '8080:8080'
+      - '11311:11311'
+    hostname: liferay-dxp-1.local
+    volumes:
+      - lfr-dl-volume:/opt/liferay/data/document_library
+    depends_on:
+      - elasticsearch
+  liferay-dxp-2:
+    build:
+      context: D:/Developer/Workspaces/LiferayProjects/lrf-docker/build/docker
+      dockerfile: Dockerfile
+    ports:
+      - '9080:8080'
+      - '21311:11311'
+    hostname: liferay-dxp-2.local
+    volumes:
+      - lfr-dl-volume:/opt/liferay/data/document_library
+    depends_on:
+      - liferay-dxp-1
+      - elasticsearch
+  elasticsearch :
+#    image: elasticsearch:7.17.0
+    build:
+      context: D:/Developer/Workspaces/LiferayProjects/lrf-docker/cluster/es
+      dockerfile: Dockerfile
+    environment:
+      - cluster.name=LiferayElasticsearchCluster 
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - discovery.type=single-node
+      - http.cors.enabled=true
+      - http.cors.allow-origin=*
+      - http.cors.allow-headers=X-Requested-With,Content-Type,Content-Length,Authorization
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - es-data-volume:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+      - 9300:9300
+volumes:
+  lfr-dl-volume:
+  es-data-volume:

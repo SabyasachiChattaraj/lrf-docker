@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<license>
+	<account-name>TechnipFMC - B2B Customer Portal</account-name>
+	<owner>TECHNIPFMC - 7.4 DXP Production - Ticket 85453</owner>
+	<description>2 node 7.4 DXP Production key</description>
+	<product-name>DXP Production</product-name>
+	<product-version>7.4</product-version>
+	<license-name>DXP Production (Virtual Cluster)</license-name>
+	<license-type>virtual-cluster</license-type>
+	<license-version>6</license-version>
+	<start-date>Monday, April 24, 2023 12:00:00 AM GMT</start-date>
+	<expiration-date>Monday, April 15, 2024 12:00:00 AM GMT</expiration-date>
+	<max-cluster-nodes>2</max-cluster-nodes>
+	<instance-size>Sizing 1</instance-size>
+	<key>00f29a6c38dc7b7910c67b5fe36f964002c9a7600be2037c5a235bfc9c016418d704d265efe8a6234ff95c42358fe19d22379f06011bd0f8704618396ceda5d13bb33e28f6eb13dd7e8eef45fea9c5419366edcb563e750e0d5e374da4e28301c74925535b335c84310a1dc50873b71e9f5eb3a29ab408f262a326702d0a5106d98b714b</key>
+</license>
